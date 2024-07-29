@@ -6,6 +6,8 @@
 
 ## Install dependencies.
 in the project folder, open terminal and then run cmd:
-`composer install`
+``` cmd
+composer install
+```
 
 ## put the whole project under xampp Apache root folder.
