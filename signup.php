@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $name = $_POST['name'];
     $birthday = $_POST['birthday'];
-    $password = hash('sha256', $_POST['password']);
+    $password = hash('sha512', $_POST['password']);
     $verification_token = bin2hex(random_bytes(64));
 
     $stmt = $mysqli->prepare("INSERT INTO users (email, name, birthday, password, verification_token) VALUES (?, ?, ?, ?, ?)");

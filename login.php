@@ -11,14 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $stmt->get_result();
 
     echo $result->num_rows;
+    echo '<br>';
 
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
-        echo $user['password'];
-        echo '<br>';
-        echo $password;
-        echo '<br>';
-        echo '';
         if ($user['password'] === $password) {
             $token = bin2hex(random_bytes(64));
             $expiry = date('Y-m-d H:i:s', strtotime('+1 hour'));
