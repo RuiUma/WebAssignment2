@@ -1,17 +1,24 @@
 <?php
+header("Content-Type: application/json");
+
 $mysqli = new mysqli("localhost", "root", "", "webassignment2");
+
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = hash('sha512', $_POST['password']);
+    error_log($_POST['password'], 3, "F:\ApacheRootDir\logs\custom_log.log");
+    error_log($_POST['email'], 3, "F:\ApacheRootDir\logs\custom_log.log");
+
+
+
 
     $stmt = $mysqli->prepare("SELECT id, password FROM users WHERE email = ? AND status = 'active'");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
 
-    echo $result->num_rows;
-    echo '<br>';
 
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
