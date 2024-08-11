@@ -1,3 +1,3 @@
 <?php  
-$mysqli = new mysqli("localhost", "root", "", "webassignment2");
+    $mysqli = new mysqli("localhost", "root", "", "webassignment2");
 ?>
