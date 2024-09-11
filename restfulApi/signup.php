@@ -4,7 +4,7 @@ use SendGrid\Mail\Mail;
 
 include '../db.php';
 
-$SENDGRID_API_KEY='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';
+$SENDGRID_API_KEY='';
 
 $data = json_decode(file_get_contents("php://input"));
 
